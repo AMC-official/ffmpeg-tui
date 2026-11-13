@@ -1,4 +1,4 @@
-# FFmpeg-TUI
+# 📹️ FFmpeg-TUI
 
 A production-quality terminal interface for FFmpeg, written entirely in Go.
 
@@ -35,7 +35,7 @@ runs them through `os/exec` without a shell.
    -c:a aac -b:a 192k -movflags +faststart movie.mp4
 ```
 
-## Philosophy
+## 🧠️ Philosophy
 
 - Entirely Go, one static binary, no daemon, no background service.
 - GPLv3, cross-platform, keyboard-first.
@@ -44,7 +44,7 @@ runs them through `os/exec` without a shell.
 - The command line is never hidden: the exact argv that will run is always on
   screen, and every job can be replayed from history.
 
-## Requirements
+## 📦️ Requirements
 
 Runtime:
 
@@ -60,7 +60,7 @@ Build:
 
 - Go 1.24 or newer.
 
-## Supported platforms
+## 💻️ Supported platforms
 
 Linux, FreeBSD, OpenBSD, NetBSD, DragonFlyBSD, macOS and Windows on amd64,
 i386, arm64 and riscv64. Everything is pure Go; no cgo is required. Pausing a
@@ -68,7 +68,22 @@ running job uses POSIX job-control signals, so it is available everywhere except
 Windows, where the interface reports that pausing is unsupported instead of
 pretending.
 
-## Install a release
+**Fully working (tested)**
+  - FreeBSD (amd64)
+  - Linux (and64)
+
+**Expected to work (untested)**
+  - Windows (any)
+  - MacOS/Darwin (any)
+
+**Experimenal**
+  - OpenBSD (any)
+  - NetBSD (any)
+  - DragonflyBSD (any)
+
+> the app has been tested on only amd64, so it *is* expected to work on i386 too, arm64 and riscv64 remain untested
+
+## 🚀️ Install a release
 
 Prebuilt static binaries are published for Linux, macOS, Windows and the BSDs on
 every `v*` tag.
@@ -97,7 +112,7 @@ You can also download an archive from the
 manual with `man ffmpeg-tui` after installing
 [man/ffmpeg-tui.1](man/ffmpeg-tui.1) into your `man1` directory.
 
-## Build and install
+## 🔧️ Build and install
 
 ```sh
 make build            # ./ffmpeg-tui
@@ -122,7 +137,7 @@ make cross            # linux/darwin/windows/freebsd/openbsd/netbsd/dragonfly
 GOOS=freebsd GOARCH=riscv64 go build ./cmd/ffmpeg-tui
 ```
 
-## Usage
+## ✨️ Usage
 
 ```sh
 ffmpeg-tui                       # open the dashboard in the current directory
@@ -134,7 +149,7 @@ ffmpeg-tui -version
 
 Flags: `-ffmpeg`, `-ffprobe`, `-config`, `-dir`, `-no-color`, `-version`.
 
-## Screens
+## 🖥️ Screens
 
 - **Dashboard** — live jobs, recent projects, favorites, presets, queue, history.
 - **Media browser** — videos, audio, images and subtitles, with `ffprobe`
@@ -176,7 +191,7 @@ Flags: `-ffmpeg`, `-ffprobe`, `-config`, `-dir`, `-no-color`, `-version`.
 - **History** — every executed command with its outcome; replay to a fresh
   output, delete, or export as a shell script.
 
-## Keyboard
+## ⌨️ Keyboard
 
 | Key | Action |
 | --- | --- |
@@ -201,7 +216,7 @@ to keep the selection visible and show the range, for example
 A manual page covering the flags, screens, keys, files and safety model lives at
 [man/ffmpeg-tui.1](man/ffmpeg-tui.1).
 
-## Safety model
+## 🔒️ Safety model
 
 - FFmpeg is **never** invoked through a shell. Every command is an explicit
   `exec.Command(bin, argv...)` built from discrete arguments.
@@ -216,7 +231,7 @@ A manual page covering the flags, screens, keys, files and safety model lives at
 - Jobs record the finished command and exit status in history; a failed job
   keeps its stderr tail.
 
-## Configuration
+## 📄️ Configuration
 
 The config is optional and human-editable JSON:
 
@@ -241,7 +256,7 @@ files fall back to defaults; a corrupt file never prevents startup.
 }
 ```
 
-## Architecture
+## 🔬️ Architecture
 
 ```
 cmd/ffmpeg-tui/        entry point, flags, terminal bootstrap
@@ -271,7 +286,7 @@ Design notes:
 - Panic-free rendering at small sizes: panels clamp, long lines truncate with
   ANSI-aware width measurement, and terminals below 56×16 show guidance.
 
-## Releases
+## ✅️ Releases
 
 Tag a commit and push the tag:
 
@@ -285,7 +300,7 @@ git push origin v1.0.0
 OpenBSD, NetBSD and DragonFlyBSD, writes `checksums.txt`, and attaches the
 archives (with README, license and man page) to the GitHub release.
 
-## Development
+## 🧑‍💻️ Development
 
 ```sh
 make test      # unit tests plus an end-to-end ffmpeg/job test
@@ -297,6 +312,6 @@ make run       # go run ./cmd/ffmpeg-tui
 The end-to-end test generates a two-second clip with `lavfi` and skips cleanly
 when ffmpeg/ffprobe are not installed.
 
-## License
+## 📃️ License
 
 GPLv3 — see [LICENSE](LICENSE).
