@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
 )
 
 // Preset is a named encoding recipe. Zero values mean "leave FFmpeg's default",

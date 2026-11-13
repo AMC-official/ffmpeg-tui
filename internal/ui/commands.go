@@ -6,10 +6,10 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffprobe"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/jobs"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/manpages"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/preview"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffprobe"
+	"github.com/AMC-official/ffmpeg-tui/internal/jobs"
+	"github.com/AMC-official/ffmpeg-tui/internal/manpages"
+	"github.com/AMC-official/ffmpeg-tui/internal/preview"
 )
 
 type probeMsg struct {

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
 )
 
 func cmd(in, out string) ffmpeg.Command {

@@ -1,4 +1,4 @@
-module github.com/ffmpeg-tui/ffmpeg-tui
+module github.com/AMC-official/ffmpeg-tui
 
 go 1.24.2
 

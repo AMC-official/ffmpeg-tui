@@ -8,11 +8,11 @@ import (
 
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffprobe"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filters"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/metadata"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffprobe"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/filters"
+	"github.com/AMC-official/ffmpeg-tui/internal/metadata"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 func (m *Model) viewWizard() string {

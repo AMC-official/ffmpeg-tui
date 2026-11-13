@@ -7,9 +7,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/queue"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/queue"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // dashAction is one selectable item on the dashboard.

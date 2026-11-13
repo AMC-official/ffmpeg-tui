@@ -7,11 +7,11 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/manpages"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/presets"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/manpages"
+	"github.com/AMC-official/ffmpeg-tui/internal/presets"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // searchHit is a global search result.

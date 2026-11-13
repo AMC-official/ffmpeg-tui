@@ -9,7 +9,7 @@ import (
 	"github.com/charmbracelet/x/ansi"
 	"github.com/muesli/termenv"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // Palette is intentionally small: mint for structure, lavender for selection,

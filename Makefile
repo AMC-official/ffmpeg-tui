@@ -4,7 +4,7 @@ VERSION ?= 0.1.0
 PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
 MANPREFIX ?= $(PREFIX)/share/man
-LDFLAGS := -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=$(VERSION)
+LDFLAGS := -s -w -X github.com/AMC-official/ffmpeg-tui/internal/ui.Version=$(VERSION)
 
 GO ?= go
 

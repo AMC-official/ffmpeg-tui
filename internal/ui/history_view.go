@@ -8,10 +8,10 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/config"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/config"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // historyEntries returns the filtered history.

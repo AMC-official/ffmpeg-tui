@@ -6,9 +6,9 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/config"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/config"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // paletteItem is one command in the ":" palette.

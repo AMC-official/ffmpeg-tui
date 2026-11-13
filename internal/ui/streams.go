@@ -8,8 +8,8 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 func (m *Model) updateStreams(msg tea.KeyMsg) (tea.Model, tea.Cmd) {

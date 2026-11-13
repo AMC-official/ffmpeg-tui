@@ -13,12 +13,12 @@ import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/config"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffprobe"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/jobs"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/queue"
+	"github.com/AMC-official/ffmpeg-tui/internal/config"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffprobe"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/jobs"
+	"github.com/AMC-official/ffmpeg-tui/internal/queue"
 )
 
 // screen identifies the active page.

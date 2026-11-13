@@ -3,7 +3,7 @@
   Install FFmpeg-TUI from GitHub releases on Windows.
 
 .EXAMPLE
-  irm https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.ps1 | iex
+  irm https://raw.githubusercontent.com/AMC-official/ffmpeg-tui/main/install.ps1 | iex
 
 .EXAMPLE
   .\install.ps1 -Version v1.0.0 -InstallDir "$env:LOCALAPPDATA\ffmpeg-tui\bin"
@@ -17,7 +17,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
-$Repo = "ffmpeg-tui/ffmpeg-tui"
+$Repo = "AMC-official/ffmpeg-tui"
 $Project = "ffmpeg-tui"
 
 function Write-Step([string]$Message) {

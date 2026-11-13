@@ -9,10 +9,10 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/config"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/presets"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/queue"
+	"github.com/AMC-official/ffmpeg-tui/internal/config"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/presets"
+	"github.com/AMC-official/ffmpeg-tui/internal/queue"
 )
 
 func newTestModel(t *testing.T) *Model {

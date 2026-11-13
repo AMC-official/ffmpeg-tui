@@ -15,7 +15,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
+      - -s -w -X github.com/AMC-official/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [linux]
     goarch: [amd64, arm64, "386", riscv64]
 
@@ -27,7 +27,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
+      - -s -w -X github.com/AMC-official/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [darwin]
     goarch: [amd64, arm64]
 
@@ -39,7 +39,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
+      - -s -w -X github.com/AMC-official/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [windows]
     goarch: [amd64, arm64, "386"]
 
@@ -51,7 +51,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
+      - -s -w -X github.com/AMC-official/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [freebsd, openbsd, netbsd, dragonfly]
     goarch: [amd64, arm64, "386"]
     ignore:
@@ -112,12 +112,12 @@ changelog:
 
 release:
   github:
-    owner: ffmpeg-tui
+    owner: AMC-official
     name: ffmpeg-tui
   draft: false
   prerelease: auto
   name_template: "FFmpeg-TUI {{ .Version }}"
   footer: |
-    **Install:** `curl -fsSL https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.sh | sh`
+    **Install:** `curl -fsSL https://raw.githubusercontent.com/AMC-official/ffmpeg-tui/main/install.sh | sh`
 
     Binaries are static (CGO disabled). You still need `ffmpeg` and `ffprobe` on `PATH`.

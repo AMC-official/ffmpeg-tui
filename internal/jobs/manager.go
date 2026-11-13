@@ -14,9 +14,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/queue"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/queue"
 )
 
 // EventKind identifies a runner event.

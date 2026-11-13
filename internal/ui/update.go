@@ -6,7 +6,7 @@ import (
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/jobs"
+	"github.com/AMC-official/ffmpeg-tui/internal/jobs"
 )
 
 // confirmPrompt is a modal yes/no question.

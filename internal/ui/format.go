@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffprobe"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffprobe"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
 )
 
 // entryTag returns the short coloured type label for a browser entry.

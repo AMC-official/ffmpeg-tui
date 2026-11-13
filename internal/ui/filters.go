@@ -8,8 +8,8 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filters"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/filters"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // filterState is the interactive filter builder.

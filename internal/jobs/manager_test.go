@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffprobe"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/history"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/queue"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffprobe"
+	"github.com/AMC-official/ffmpeg-tui/internal/history"
+	"github.com/AMC-official/ffmpeg-tui/internal/queue"
 )
 
 func ffmpegAvailable(t *testing.T) string {

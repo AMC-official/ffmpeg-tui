@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
 )
 
 // Entry is one executed command.

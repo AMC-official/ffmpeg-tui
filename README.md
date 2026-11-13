@@ -76,7 +76,7 @@ every `v*` tag.
 Linux, macOS and BSDs:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/AMC-official/ffmpeg-tui/main/install.sh | sh
 ```
 
 The script verifies the SHA-256 checksum, installs to `~/.local/bin` (override
@@ -86,14 +86,14 @@ prefer: [install.sh](install.sh). Pick a version with `VERSION=v1.0.0`.
 Windows (PowerShell):
 
 ```powershell
-irm https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/AMC-official/ffmpeg-tui/main/install.ps1 | iex
 ```
 
 It installs to `%LOCALAPPDATA%\ffmpeg-tui\bin` and adds that directory to your
 user `PATH`.
 
 You can also download an archive from the
-[releases page](https://github.com/ffmpeg-tui/ffmpeg-tui/releases) and read the
+[releases page](https://github.com/AMC-official/ffmpeg-tui/releases) and read the
 manual with `man ffmpeg-tui` after installing
 [man/ffmpeg-tui.1](man/ffmpeg-tui.1) into your `man1` directory.
 
@@ -104,7 +104,7 @@ make build            # ./ffmpeg-tui
 make install-local    # installs the binary and man page from this checkout
 make install          # installs only the binary to $GOBIN (or ~/go/bin)
 make install-man      # installs only man/ffmpeg-tui.1
-go install github.com/ffmpeg-tui/ffmpeg-tui/cmd/ffmpeg-tui@latest
+go install github.com/AMC-official/ffmpeg-tui/cmd/ffmpeg-tui@latest
 ```
 
 `make install-local` installs to `/usr/local/bin` and

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Install the FFmpeg-TUI binary and manual page from GitHub releases.
 #
-#   curl -fsSL https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/AMC-official/ffmpeg-tui/main/install.sh | sh
 #
 # Environment:
 #   VERSION   release tag or version to install (default: latest)
@@ -15,7 +15,7 @@
 #   BIN_DIR=$HOME/bin sh install.sh
 set -eu
 
-REPO="ffmpeg-tui/ffmpeg-tui"
+REPO="AMC-official/ffmpeg-tui"
 PROJECT="ffmpeg-tui"
 BASE_URL="https://github.com/${REPO}/releases"
 DRY_RUN="${DRY_RUN:-0}"

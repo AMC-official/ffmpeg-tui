@@ -8,8 +8,8 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/manpages"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/manpages"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // manState is the built-in documentation browser.

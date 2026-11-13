@@ -8,11 +8,11 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/ansi"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filesystem"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/filters"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/presets"
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/widgets"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/filesystem"
+	"github.com/AMC-official/ffmpeg-tui/internal/filters"
+	"github.com/AMC-official/ffmpeg-tui/internal/presets"
+	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
 // Version is the application version, overridable at link time.

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
 )
 
 // Status is the lifecycle state of a job.

@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/presets"
+	"github.com/AMC-official/ffmpeg-tui/internal/presets"
 )
 
 // Favorite is a pinned file or directory on the dashboard.

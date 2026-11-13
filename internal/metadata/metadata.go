@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ffmpeg-tui/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
 )
 
 // Field is one editable tag.
