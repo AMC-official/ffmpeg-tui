@@ -2,6 +2,8 @@
 
 A production-quality terminal interface for FFmpeg, written entirely in Go.
 
+** ⚠️ Alpha Software:** FFmpeg-TUI is currently in early alpha. While core features work, you should expect bugs, missing edge cases, and potential breaking changes. Please [open an issue](https://github.com/AMC-official/ffmpeg-tui/issues) if you find something broken!
+
 FFmpeg-TUI is a thin management layer over the official `ffmpeg`, `ffprobe` and
 (optionally) `ffplay` binaries — the same way lazygit sits on top of git. It does
 not link libav*, does not bundle a media stack and does not talk to a server. It
