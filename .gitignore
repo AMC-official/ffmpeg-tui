@@ -1,0 +1,19 @@
+# Build output
+/ffmpeg-tui
+/ffmpeg-tui.exe
+dist/
+*.test
+ffmpeg-tui-*-src.zip
+
+# Local state that should never be committed
+*.log
+.queue.json
+history.jsonl
+command-history.sh
+.env
+
+# Editor and OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/

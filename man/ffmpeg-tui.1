@@ -1,0 +1,196 @@
+.TH FFMPEG-TUI 1 "2026" "ffmpeg-tui" "User Commands"
+.SH NAME
+ffmpeg-tui \- keyboard-driven terminal interface for FFmpeg
+.SH SYNOPSIS
+.B ffmpeg-tui
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B ffmpeg-tui
+is a terminal user interface for the official
+.BR ffmpeg (1)
+and
+.BR ffprobe (1)
+command line tools. It browses media, inspects streams, builds conversions with
+a guided wizard, manages a job queue, and runs FFmpeg directly without a shell.
+.PP
+Every screen shows the exact argv that will be executed before anything runs.
+FFmpeg is always started with an explicit argument vector; filenames are never
+re-parsed by a shell, brace expansion, or command substitution.
+.PP
+Only one job runs at a time. Jobs can be paused, resumed, canceled, retried and
+reordered. Pausing uses POSIX job-control signals and is therefore unavailable
+on Windows.
+.SH OPTIONS
+.TP
+.B \-dir \fIPATH\fR
+Start in \fIPATH\fR instead of the current directory.
+.TP
+.B \-ffmpeg \fIPATH\fR
+Use a specific \fBffmpeg\fR binary.
+.TP
+.B \-ffprobe \fIPATH\fR
+Use a specific \fBffprobe\fR binary.
+.TP
+.B \-config \fIPATH\fR
+Read and write configuration at \fIPATH\fR instead of the platform default.
+.TP
+.B \-no-color
+Disable colour output.
+.TP
+.B \-version
+Print the version and exit.
+.SH SCREENS
+.TP
+.B Dashboard
+Jobs, recent projects, favorites, presets, queue and history.
+.TP
+.B Media browser
+Files and folders with \fBffprobe\fR metadata, streams, chapters, attachments
+and a terminal-native ASCII frame or waveform preview.
+.TP
+.B Conversion wizard
+Input, output, container, video codec, quality, encoder speed, audio codec,
+audio bitrate, subtitles, metadata, filters and a confirmation screen.
+.TP
+.B Queue
+Live frame, FPS, bitrate, time and ETA for the running job, plus pause, resume,
+cancel, retry, reorder, save and load.
+.TP
+.B Filters
+Interactive filtergraph builder covering geometry, colour, overlays, timing,
+denoise, sharpening, normalisation and more.
+.TP
+.B Presets
+Built-in and user presets for lossless, web, device, archival, animation and
+audio-only output.
+.TP
+.B Batch
+Encode a folder recursively with output templates and skip-existing support.
+.TP
+.B Tools
+One-click audio, video and subtitle recipes, each opening the wizard with a
+previewed command.
+.TP
+.B Metadata
+Edit container tags and write them with stream copy.
+.TP
+.B Streams
+Inspect every stream, disposition, chapter and attachment.
+.TP
+.B Compare
+Compare input and output resolution, codec, bitrate, size and compression.
+.TP
+.B Manual
+Offline searchable index of filters, encoders, muxers, demuxers, protocols,
+options and tools. Live help can be fetched from the installed FFmpeg.
+.TP
+.B History
+Every executed command with its exit status; replay, delete or export as a
+shell script.
+.SH KEYS
+.TP
+.B Ctrl+N
+New conversion.
+.TP
+.B Ctrl+Q, Ctrl+C
+Quit. Active jobs ask for confirmation.
+.TP
+.B /
+Global search across files, manual pages, presets, history and actions.
+.TP
+.B :
+Command palette. For example
+.B :man crop
+opens the bundled documentation,
+.B :man libx264
+and
+.B :man mp4
+open the matching pages.
+.TP
+.B ?
+Help overlay.
+.TP
+.B Space
+Pause or resume the selected job.
+.TP
+.B Delete
+Cancel or remove the selected job.
+.TP
+.B Tab
+Next field, next category, or path completion.
+.TP
+.B g, G, PgUp, PgDn
+Jump to the start or end of a list, or move a page at a time. Lists scroll to
+keep the selection visible and show the visible range in the panel title.
+.SH FILES
+.TP
+.I $XDG_CONFIG_HOME/ffmpeg-tui/config.json
+Configuration on Linux and BSDs (usually
+.IR ~/.config/ffmpeg-tui/config.json ).
+.TP
+.I ~/Library/Application Support/ffmpeg-tui/config.json
+Configuration on macOS.
+.TP
+.I %AppData%\effmpeg-tui\econfig.json
+Configuration on Windows.
+.TP
+.I history.jsonl
+Append-only command history, stored beside the configuration file.
+.TP
+.I queue.json
+Saved queue, written with
+.B s
+on the queue screen.
+.TP
+.I command-history.sh
+Exported shell script of recorded commands.
+.SH ENVIRONMENT
+.TP
+.B FFMPEG
+Not used; pass
+.B \-ffmpeg
+or set
+.B ffmpeg_path
+in the configuration file.
+.TP
+.B NO_COLOR
+Disables colour when the value is non-empty, in addition to
+.BR \-no-color .
+.SH EXAMPLES
+Open the browser in a folder:
+.PP
+.nf
+    ffmpeg-tui -dir ~/Videos
+.fi
+.PP
+Use a specific FFmpeg build and an isolated configuration:
+.PP
+.nf
+    ffmpeg-tui -ffmpeg /opt/ffmpeg/bin/ffmpeg -config /tmp/tui.json
+.fi
+.PP
+Open the loudness filter documentation immediately:
+.PP
+.nf
+    :man loudnorm
+.fi
+.SH EXIT STATUS
+.TP
+.B 0
+Clean shutdown.
+.TP
+.B 1
+Startup failure, for example an unreadable configuration directory.
+.SH SAFETY
+FFmpeg is never invoked through a shell. Paths are validated before a job is
+queued: the input must exist, must not be a directory or empty, the output
+directory must exist, and input and output must differ. Values placed inside a
+filtergraph are escaped for FFmpeg's filtergraph grammar.
+.SH SEE ALSO
+.BR ffmpeg (1),
+.BR ffprobe (1),
+.BR ffplay (1)
+.SH BUGS
+Report issues at https://github.com/ffmpeg-tui/ffmpeg-tui/issues
+.SH LICENSE
+GPLv3. FFmpeg itself is licensed separately by its authors.

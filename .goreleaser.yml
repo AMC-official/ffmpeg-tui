@@ -1,0 +1,123 @@
+version: 2
+
+project_name: ffmpeg-tui
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: linux
+    main: ./cmd/ffmpeg-tui
+    binary: ffmpeg-tui
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+    goos: [linux]
+    goarch: [amd64, arm64, "386", riscv64]
+
+  - id: darwin
+    main: ./cmd/ffmpeg-tui
+    binary: ffmpeg-tui
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+    goos: [darwin]
+    goarch: [amd64, arm64]
+
+  - id: windows
+    main: ./cmd/ffmpeg-tui
+    binary: ffmpeg-tui
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+    goos: [windows]
+    goarch: [amd64, arm64, "386"]
+
+  - id: bsd
+    main: ./cmd/ffmpeg-tui
+    binary: ffmpeg-tui
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+    goos: [freebsd, openbsd, netbsd, dragonfly]
+    goarch: [amd64, arm64, "386"]
+    ignore:
+      - goos: dragonfly
+        goarch: arm64
+      - goos: dragonfly
+        goarch: "386"
+
+archives:
+  - id: unix
+    ids: [linux, darwin, bsd]
+    formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    files:
+      - README.md
+      - LICENSE
+      - man/ffmpeg-tui.1
+
+  - id: windows
+    ids: [windows]
+    formats: [zip]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  use: git
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\(.+\))??!?:.+$'
+      order: 0
+    - title: Fixes
+      regexp: '^.*?fix(\(.+\))??!?:.+$'
+      order: 1
+    - title: Documentation
+      regexp: '^.*?docs(\(.+\))??!?:.+$'
+      order: 2
+    - title: Other changes
+      order: 999
+  filters:
+    exclude:
+      - "^chore:"
+      - "^ci:"
+      - "^test:"
+      - Merge pull request
+      - Merge branch
+
+release:
+  github:
+    owner: ffmpeg-tui
+    name: ffmpeg-tui
+  draft: false
+  prerelease: auto
+  name_template: "FFmpeg-TUI {{ .Version }}"
+  footer: |
+    **Install:** `curl -fsSL https://raw.githubusercontent.com/ffmpeg-tui/ffmpeg-tui/main/install.sh | sh`
+
+    Binaries are static (CGO disabled). You still need `ffmpeg` and `ffprobe` on `PATH`.
