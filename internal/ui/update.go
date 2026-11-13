@@ -125,19 +125,23 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	case jobEventMsg:
 		m.queueSnapshot()
-		switch msg.ev.Kind {
-		case jobs.EventFinished:
+		var toast tea.Cmd
+		if msg.ev.Kind == jobs.EventFinished {
 			j := msg.ev.Job
 			switch j.Status {
 			case "done":
-				return m, m.flash("✓ " + j.Name + " finished")
+				toast = m.flash("✓ " + j.Name + " finished")
 			case "failed":
-				return m, m.flash("✖ " + j.Name + " failed: " + shorten(j.Err, 80))
+				toast = m.flash("✖ " + j.Name + " failed: " + shorten(j.Err, 80))
 			case "canceled":
-				return m, m.flash("⊘ " + j.Name + " canceled")
+				toast = m.flash("⊘ " + j.Name + " canceled")
 			}
 		}
-		return m, waitJobEvent(m.jobs)
+		// Re-arm the pump for every event, including the last one. Returning
+		// only the toast command here stopped progress updates after the first
+		// finished job, so later jobs looked frozen until another screen
+		// refreshed the cached snapshot.
+		return m, tea.Batch(waitJobEvent(m.jobs), toast)
 	}
 
 	if m.editing {

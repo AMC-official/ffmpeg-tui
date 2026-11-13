@@ -11,6 +11,7 @@ import (
 
 	"github.com/AMC-official/ffmpeg-tui/internal/config"
 	"github.com/AMC-official/ffmpeg-tui/internal/ffmpeg"
+	"github.com/AMC-official/ffmpeg-tui/internal/jobs"
 	"github.com/AMC-official/ffmpeg-tui/internal/presets"
 	"github.com/AMC-official/ffmpeg-tui/internal/queue"
 )
@@ -294,5 +295,31 @@ func TestAudioOnlyWizardDisablesVideo(t *testing.T) {
 	joined := strings.Join(cmd.Args, " ")
 	if !strings.Contains(joined, "-vn") || !strings.Contains(joined, "-c:a libmp3lame") {
 		t.Fatalf("audio-only command wrong: %s", joined)
+	}
+}
+
+// TestJobPumpReArmsAfterFinishedEvent guards the regression where the finished
+// branch returned only the toast command, leaving the runner event channel
+// unread and freezing progress for every later job.
+func TestJobPumpReArmsAfterFinishedEvent(t *testing.T) {
+	m := newTestModel(t)
+	defer m.Close()
+
+	for _, status := range []queue.Status{queue.Done, queue.Failed, queue.Canceled} {
+		_, cmd := m.Update(jobEventMsg{ev: jobs.Event{
+			Kind: jobs.EventFinished,
+			Job:  queue.Job{Name: "job", Status: status, Err: "boom"},
+		}})
+		if cmd == nil {
+			t.Fatalf("%s: no command returned", status)
+		}
+		msg := cmd()
+		batch, ok := msg.(tea.BatchMsg)
+		if !ok {
+			t.Fatalf("%s: expected a batch containing the event pump, got %T", status, msg)
+		}
+		if len(batch) < 2 {
+			t.Fatalf("%s: pump not re-armed, batch has %d commands", status, len(batch))
+		}
 	}
 }
