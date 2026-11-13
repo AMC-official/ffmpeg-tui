@@ -10,7 +10,7 @@ runs them through `os/exec` without a shell.
 
 ```
  FFmpeg-TUI v0.1.0  ·  ffmpeg 7.0.2                              ~/films
-────────────────────────────────────────────────────────────────────────
+ ─────────────────────────────────────────────────────────────────────
  Jobs
  ▶ Convert movie.mkv            42% ███████░░░░░░░  ETA 00:04:30
  ✓ music.flac                   done
@@ -27,7 +27,7 @@ runs them through `os/exec` without a shell.
    Man pages             offline searchable FFmpeg documentation
    Queue                 2 queued · 1 running
    History               38 recorded commands
-────────────────────────────────────────────────────────────────────────
+ ─────────────────────────────────────────────────────────────────────
  Command preview · wizard
  ffmpeg \
    -hide_banner -nostdin -y -i movie.mkv \
