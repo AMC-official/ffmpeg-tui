@@ -6,6 +6,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 
 	"github.com/AMC-official/ffmpeg-tui/internal/config"
+	"github.com/AMC-official/ffmpeg-tui/internal/jobs"
 	"github.com/AMC-official/ffmpeg-tui/internal/widgets"
 )
 
@@ -23,6 +24,10 @@ type helpSection struct {
 }
 
 func helpSections() []helpSection {
+	pauseDesc := "pause / resume the selected job (SIGSTOP/SIGCONT)"
+	if !jobs.PauseSupported() {
+		pauseDesc = "pause / resume (not supported on this platform)"
+	}
 	return []helpSection{
 		{"Global", []helpEntry{
 			{"Ctrl+N", "new conversion wizard"},
@@ -35,7 +40,7 @@ func helpSections() []helpSection {
 			{"↑ ↓ / j k", "move selection"},
 		}},
 		{"Jobs & queue", []helpEntry{
-			{"Space", "pause / resume the selected job (SIGSTOP/SIGCONT)"},
+			{"Space", pauseDesc},
 			{"d", "cancel the running job or remove a queued one"},
 			{"Delete", "remove a finished job from the queue"},
 			{"r", "retry a failed or finished job"},

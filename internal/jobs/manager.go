@@ -257,6 +257,9 @@ func (m *Manager) Resume(id string) bool {
 // PauseSupported reports whether the current platform can suspend a process.
 func (m *Manager) PauseSupported() bool { return pauseSupported }
 
+// PauseSupported reports whether this build can suspend a running process.
+func PauseSupported() bool { return pauseSupported }
+
 // Move reorders the queue.
 func (m *Manager) Move(from, to int) bool {
 	m.mu.Lock()

@@ -62,18 +62,23 @@ try {
     Invoke-WebRequest -Uri "$baseUrl/$archive" -OutFile $archivePath -UseBasicParsing
 
     $checksumsPath = Join-Path $temp "checksums.txt"
+    $haveChecksums = $false
     try {
         Invoke-WebRequest -Uri "$baseUrl/checksums.txt" -OutFile $checksumsPath -UseBasicParsing
-        $line = Select-String -Path $checksumsPath -Pattern ([regex]::Escape($archive) + '$') | Select-Object -First 1
-        if ($line) {
-            $expected = ($line.Line -split '\s+')[0].ToLowerInvariant()
-            $actual = (Get-FileHash -Algorithm SHA256 -Path $archivePath).Hash.ToLowerInvariant()
-            if ($expected -ne $actual) { Fail "checksum mismatch for $archive" }
-            Write-Step "checksum verified"
-        }
+        $haveChecksums = $true
     }
     catch {
         Write-Step "warning: checksums.txt not available, skipping verification"
+    }
+    if ($haveChecksums) {
+        # Verification must fail closed: a mismatch or a missing entry aborts the
+        # install instead of falling through as a download warning.
+        $line = Select-String -Path $checksumsPath -Pattern ([regex]::Escape($archive) + '$') | Select-Object -First 1
+        if (-not $line) { Fail "checksums.txt does not list $archive" }
+        $expected = ($line.Line -split '\s+')[0].ToLowerInvariant()
+        $actual = (Get-FileHash -Algorithm SHA256 -Path $archivePath).Hash.ToLowerInvariant()
+        if ($expected -ne $actual) { Fail "checksum mismatch for $archive" }
+        Write-Step "checksum verified"
     }
 
     Expand-Archive -Path $archivePath -DestinationPath $temp -Force
