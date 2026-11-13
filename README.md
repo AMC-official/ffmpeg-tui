@@ -37,6 +37,8 @@ runs them through `os/exec` without a shell.
    -c:a aac -b:a 192k -movflags +faststart movie.mp4
 ```
 
+> Additional note: AI was partially used In order to Help make and debug this project
+
 ## 🧠️ Philosophy
 
 - Entirely Go, one static binary, no daemon, no background service.
