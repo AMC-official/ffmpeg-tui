@@ -23,6 +23,28 @@ DRY_RUN="${DRY_RUN:-0}"
 log() { printf '%s\n' "$*" >&2; }
 die() { log "error: $*"; exit 1; }
 
+die_no_release() {
+	log "error: no published release could be found for ${REPO}."
+	log ""
+	if [ -f "$(dirname "$0")/go.mod" ] && [ -d "$(dirname "$0")/cmd/ffmpeg-tui" ]; then
+		log "This looks like a source checkout, not an installed copy. install.sh"
+		log "downloads prebuilt release archives; to run from source build it instead:"
+		log ""
+		log "    make build"
+		log "    ./ffmpeg-tui -dir ~/Videos"
+		log ""
+	else
+		log "The repository has no GitHub release matching the request yet."
+		log ""
+	fi
+	log "Once a release exists, either re-run this script, or pick a tag explicitly:"
+	log ""
+	log "    VERSION=v1.0.0 sh install.sh"
+	log ""
+	log "Building from source only needs Go and the ffmpeg/ffprobe binaries."
+	exit 1
+}
+
 need() {
 	for cmd in "$@"; do
 		command -v "$cmd" >/dev/null 2>&1 || die "required command not found: $cmd"
@@ -64,7 +86,7 @@ latest_tag() {
 	tag=${url##*/}
 	case "$tag" in
 	v[0-9]*) echo "$tag" ;;
-	*) die "could not determine the latest release; set VERSION explicitly" ;;
+	*) die_no_release ;;
 	esac
 }
 
