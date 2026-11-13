@@ -15,7 +15,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [linux]
     goarch: [amd64, arm64, "386", riscv64]
 
@@ -27,7 +27,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [darwin]
     goarch: [amd64, arm64]
 
@@ -39,7 +39,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [windows]
     goarch: [amd64, arm64, "386"]
 
@@ -51,7 +51,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version=v{{ .Version }}
+      - -s -w -X github.com/ffmpeg-tui/ffmpeg-tui/internal/ui.Version={{ .Version }}
     goos: [freebsd, openbsd, netbsd, dragonfly]
     goarch: [amd64, arm64, "386"]
     ignore:

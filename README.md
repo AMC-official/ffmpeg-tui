@@ -101,9 +101,18 @@ manual with `man ffmpeg-tui` after installing
 
 ```sh
 make build            # ./ffmpeg-tui
-make install          # installs to $GOBIN (or ~/go/bin)
-make install-man      # installs man/ffmpeg-tui.1 under /usr/local/share/man
+make install-local    # installs the binary and man page from this checkout
+make install          # installs only the binary to $GOBIN (or ~/go/bin)
+make install-man      # installs only man/ffmpeg-tui.1
 go install github.com/ffmpeg-tui/ffmpeg-tui/cmd/ffmpeg-tui@latest
+```
+
+`make install-local` installs to `/usr/local/bin` and
+`/usr/local/share/man/man1`. Use a user prefix to avoid root:
+
+```sh
+make install-local PREFIX=$HOME/.local
+# or stage it: make install-local DESTDIR=/tmp/pkgroot PREFIX=/usr/local
 ```
 
 Cross-compile examples:
